@@ -14,7 +14,6 @@ local MAIN_MENU_SCRIPT = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GameTeleport.lua"
 ))
 
--- badge-style notification
 local function Notify(title, text, duration)
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = title,
@@ -30,15 +29,15 @@ elseif game.GameId == MAIN_GAMEID then
     MAIN_SCRIPT()
 
 else
-    -- copy discord invite
+
     pcall(function()
         setclipboard(DISCORD_INVITE)
     end)
 
-    -- notify user
     Notify(
         "Unsupported Game",
         "Nameless does not support this game.\nDiscord invite copied to clipboard.",
         5
     )
 end
+
