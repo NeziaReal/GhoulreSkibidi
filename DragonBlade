@@ -1,0 +1,150 @@
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local repo = "https://raw.githubusercontent.com/deividcomsono/Obsidian/main/"
+local Library = loadstring(game:HttpGet(repo .. "Library.lua"))()
+
+local Window = Library:CreateWindow({
+    Title = "Auto EXP / GodMode",
+    Footer = "Obsidian",
+    Icon = 95816097006870,
+})
+
+local Tabs = {
+    Main = Window:AddTab("Main", "user"),
+    ["UI Settings"] = Window:AddTab("UI Settings", "settings"),
+}
+
+local Group = Tabs.Main:AddLeftGroupbox("Main")
+
+local PlayerFolder = workspace:WaitForChild(LocalPlayer.Name)
+
+local SkillRemote = PlayerFolder:WaitForChild("UpdateSkillEvent")
+local EXP = 5
+
+local function createAutoExpToggle(id, skill)
+    local enabled = false
+    local thread
+
+    Group:AddToggle(id, {
+        Text = "Auto " .. skill .. " EXP",
+        Default = false,
+        Callback = function(v)
+            enabled = v
+
+            if v then
+                Library:Notify({
+                    Title = "Enabled",
+                    Description = skill .. " Auto EXP enabled",
+                    Time = 2,
+                })
+
+                if not thread then
+                    thread = task.spawn(function()
+                        while enabled do
+                            SkillRemote:FireServer(skill, EXP)
+                            task.wait(1)
+                        end
+                        thread = nil
+                    end)
+                end
+            end
+        end,
+    })
+end
+
+createAutoExpToggle("AutoSprint", "Sprint")
+createAutoExpToggle("AutoBow", "Bow")
+createAutoExpToggle("AutoOneHanded", "OneHanded")
+createAutoExpToggle("AutoTwoHanded", "TwoHanded")
+createAutoExpToggle("AutoPole", "Pole")
+createAutoExpToggle("AutoRiding", "Riding")
+createAutoExpToggle("AutoBaseBuilding", "BaseBuilding")
+
+-- God Mode
+local invulnObj = PlayerFolder:WaitForChild("Invulnerable")
+local invulnConn
+
+Group:AddToggle("GodMode", {
+    Text = "God Mode",
+    Default = false,
+    Callback = function(v)
+        if v then
+            invulnObj:SetAttribute("Value", true)
+
+            Library:Notify({
+                Title = "Enabled",
+                Description = "God Mode enabled",
+                Time = 2,
+            })
+
+            if not invulnConn then
+                invulnConn = invulnObj:GetAttributeChangedSignal("Value"):Connect(function()
+                    if invulnObj:GetAttribute("Value") ~= true then
+                        invulnObj:SetAttribute("Value", true)
+                    end
+                end)
+            end
+        else
+            if invulnConn then
+                invulnConn:Disconnect()
+                invulnConn = nil
+            end
+        end
+    end,
+})
+
+-- Infinite Stamina
+local staminaObj = PlayerFolder:WaitForChild("MaxStamina")
+local staminaConn
+
+Group:AddToggle("InfiniteStamina", {
+    Text = "Infinite Stamina (600)",
+    Default = false,
+    Callback = function(v)
+        if v then
+            staminaObj:SetAttribute("Value", 600)
+
+            Library:Notify({
+                Title = "Enabled",
+                Description = "Infinite stamina enabled",
+                Time = 2,
+            })
+
+            if not staminaConn then
+                staminaConn = staminaObj:GetAttributeChangedSignal("Value"):Connect(function()
+                    if staminaObj:GetAttribute("Value") ~= 600 then
+                        staminaObj:SetAttribute("Value", 600)
+                    end
+                end)
+            end
+        else
+            if staminaConn then
+                staminaConn:Disconnect()
+                staminaConn = nil
+            end
+        end
+    end,
+})
+
+-- Inventory Size
+local inventoryObj = PlayerFolder:WaitForChild("InventorySize")
+
+Group:AddButton({
+    Text = "Set Inventory Size to 400",
+    Func = function()
+        inventoryObj:SetAttribute("Value", 400)
+
+        Library:Notify({
+            Title = "Inventory",
+            Description = "Inventory size set to 400",
+            Time = 2,
+        })
+    end,
+})
+
+-- UI Settings
+local MenuGroup = Tabs["UI Settings"]:AddLeftGroupbox("Menu")
+MenuGroup:AddButton("Unload", function()
+    Library:Unload()
+end)
