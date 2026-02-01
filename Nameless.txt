@@ -19,6 +19,10 @@ local DRAGONBLADE_SCRIPT = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/DragonBlade.lua"
 ))
 
+local UNIVERSAL_SCRIPT = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/Universal.lua"
+))
+
 local function Notify(title, text, duration)
     game:GetService("StarterGui"):SetCore("SendNotification", {
         Title = title,
@@ -46,4 +50,6 @@ else
         "Nameless does not support this game.\nDiscord invite copied to clipboard.",
         5
     )
+    
+    UNIVERSAL_SCRIPT()
 end
