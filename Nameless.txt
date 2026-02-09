@@ -1,11 +1,12 @@
+-- ur free to snoop around but be wary of going into the main loaders! u may get ur ip logged :)
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
-
+local Notifications = loadstring(game:HttpGet("https://raw.githubusercontent.com/tacolift/notification-library/main/library.lua"))()
 local MAINMENU_PLACEID = 72368345999613
 local MAIN_GAMEID = 6490954291
-local DRAGONBLADE_GAMEID = 2841207252
-local DISCORD_INVITE = "https://discord.gg/RX4bGTY9"
+local JUJUTSUSHENANIGANS_GAMEID = 3508322461
+local DISCORD_INVITE = "https://discord.gg/uu57TArNU6"
 
 local MAIN_SCRIPT = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GhoulRe.lua"
@@ -15,41 +16,31 @@ local MAIN_MENU_SCRIPT = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GameTeleport.lua"
 ))
 
-local DRAGONBLADE_SCRIPT = loadstring(game:HttpGet(
-    "https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/DragonBlade.lua"
+local JUJUTSUSHENANIGANS_SCRIPT = loadstring(game:HttpGet(
+    "https://raw.githubusercontent.com/NeziaReal/jjs/refs/heads/main/main.lua"
 ))
 
 local UNIVERSAL_SCRIPT = loadstring(game:HttpGet(
     "https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/Universal.lua"
 ))
 
-local function Notify(title, text, duration)
-    game:GetService("StarterGui"):SetCore("SendNotification", {
-        Title = title,
-        Text = text,
-        Duration = duration or 4
-    })
-end
-
 if game.PlaceId == MAINMENU_PLACEID then
-    MAIN_MENU_SCRIPT()
+    MAIN_MENU_SCRIPT() -- ghoul re main menu
+	Notifications.Create("Nameless ⭐", "Loaded Main Menu Script", 2, Color3.fromRGB(255,255,255))
 
 elseif game.GameId == MAIN_GAMEID then
-    MAIN_SCRIPT()
+    MAIN_SCRIPT() -- ghoul re
+	Notifications.Create("Nameless ⭐", "Loaded Ghoul Re Script", 2, Color3.fromRGB(255,255,255))
 
-elseif game.GameId == DRAGONBLADE_GAMEID then
-    DRAGONBLADE_SCRIPT()
-
+elseif game.GameId == JUJUTSUSHENANIGANS_GAMEID then
+    JUJUTSUSHENANIGANS_SCRIPT() -- jjs main
+	Notifications.Create("Nameless ⭐", "Loaded Jujutsu Shenanigans Script", 2, Color3.fromRGB(255,255,255))
 else
     pcall(function()
         setclipboard(DISCORD_INVITE)
     end)
 
-    Notify(
-        "Unsupported Game",
-        "Nameless does not support this game.\nDiscord invite copied to clipboard.",
-        5
-    )
-    
+	Notifications.Create("Nameless ⭐", "Nameless does not support this game.", 2, Color3.fromRGB(255,255,255))
+	Notifications.Create("Nameless ⭐", "Loaded Universal Script", 2, Color3.fromRGB(255,255,255))
     UNIVERSAL_SCRIPT()
 end
