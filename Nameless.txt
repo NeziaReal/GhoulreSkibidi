@@ -4,7 +4,6 @@ end
 
 local qot = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
 if qot then
-
     qot([[loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/Nameless.txt"))()]])
 end
 
@@ -13,6 +12,7 @@ local MAINMENU_PLACEID = 72368345999613
 local MAIN_GAMEID = 6490954291
 local KAIZEN_GAMEID = 6048923315
 local JUJUTSUSHENANIGANS_GAMEID = 3508322461
+local BIZZARELINEAGE_GAMEID = 5130394318
 local DISCORD_INVITE = "https://discord.gg/uu57TArNU6"
 
 local MAIN_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GhoulRe.lua"))
@@ -21,26 +21,31 @@ local MAIN_MENU_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.
 local JUJUTSUSHENANIGANS_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/jjs/refs/heads/main/main.lua"))
 local UNIVERSAL_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/Universal.lua"))
 local KAIZEN_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/kaizen.lua"))
+local BIZZARELINEAGE_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/bl.lua"))
+
 if game.PlaceId == MAINMENU_PLACEID then
     MAIN_MENU_SCRIPT() 
     task.wait(3)
     Webhook_Script()
     Notifications.Create("Nameless ⭐", "Loaded Main Menu Script", 2, Color3.fromRGB(255,255,255))
-
 elseif game.GameId == MAIN_GAMEID then
     MAIN_SCRIPT() 
     task.wait(3)
     Webhook_Script()
     Notifications.Create("Nameless ⭐", "Loaded Ghoul Re Script", 2, Color3.fromRGB(255,255,255))
 elseif game.GameId == KAIZEN_GAMEID then
-    KAIZEN_SCRIPT() -- kaizen
-	task.wait(3)
-	Webhook_Script()
-	Notifications.Create("Nameless ⭐", "Loaded Kaizen Dupe.", 2, Color3.fromRGB(255,255,255))
+    KAIZEN_SCRIPT()
+    task.wait(3)
+    Webhook_Script()
+    Notifications.Create("Nameless ⭐", "Loaded Kaizen Dupe.", 2, Color3.fromRGB(255,255,255))
 elseif game.GameId == JUJUTSUSHENANIGANS_GAMEID then
     JUJUTSUSHENANIGANS_SCRIPT()
     Notifications.Create("Nameless ⭐", "Loaded Jujutsu Shenanigans Script", 2, Color3.fromRGB(255,255,255))
-
+elseif game.GameId == BIZZARELINEAGE_GAMEID then
+    BIZZARELINEAGE_SCRIPT()
+    task.wait(3)
+    Webhook_Script()
+    Notifications.Create("Nameless ⭐", "Loaded Bizzare Lineage Script", 2, Color3.fromRGB(255,255,255))
 else
     pcall(function()
         setclipboard(DISCORD_INVITE)
