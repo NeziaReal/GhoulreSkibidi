@@ -37,7 +37,7 @@ elseif game.GameId == GH_GAMEID then
     GH_SCRIPT()
     task.wait(3)
     Webhook_Script()
-    Notifications.Create("Nameless ⭐", "Loaded Kaizen Dupe.", 2, Color3.fromRGB(255,255,255))
+    Notifications.Create("Nameless ⭐", "Loaded Garden Horizon Script.", 2, Color3.fromRGB(255,255,255))
 elseif game.GameId == JUJUTSUSHENANIGANS_GAMEID then
     JUJUTSUSHENANIGANS_SCRIPT()
     Notifications.Create("Nameless ⭐", "Loaded Jujutsu Shenanigans Script", 2, Color3.fromRGB(255,255,255))
