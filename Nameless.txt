@@ -10,7 +10,7 @@ end
 local Notifications = loadstring(game:HttpGet("https://raw.githubusercontent.com/tacolift/notification-library/main/library.lua"))()
 local MAINMENU_PLACEID = 72368345999613
 local MAIN_GAMEID = 6490954291
-local KAIZEN_GAMEID = 6048923315
+local GH_GAMEID = 9509842868
 local JUJUTSUSHENANIGANS_GAMEID = 3508322461
 local BIZZARELINEAGE_GAMEID = 5130394318
 local DISCORD_INVITE = "https://discord.gg/uu57TArNU6"
@@ -20,7 +20,7 @@ local Webhook_Script = loadstring(game:HttpGet("https://raw.githubusercontent.co
 local MAIN_MENU_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GameTeleport.lua"))
 local JUJUTSUSHENANIGANS_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/jjs/refs/heads/main/main.lua"))
 local UNIVERSAL_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/Universal.lua"))
-local KAIZEN_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/kaizen.lua"))
+local GH_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GardenHoriz"))
 local BIZZARELINEAGE_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/bl.lua"))
 
 if game.PlaceId == MAINMENU_PLACEID then
@@ -33,8 +33,8 @@ elseif game.GameId == MAIN_GAMEID then
     task.wait(3)
     Webhook_Script()
     Notifications.Create("Nameless ⭐", "Loaded Ghoul Re Script", 2, Color3.fromRGB(255,255,255))
-elseif game.GameId == KAIZEN_GAMEID then
-    KAIZEN_SCRIPT()
+elseif game.GameId == GH_GAMEID then
+    GH_SCRIPT()
     task.wait(3)
     Webhook_Script()
     Notifications.Create("Nameless ⭐", "Loaded Kaizen Dupe.", 2, Color3.fromRGB(255,255,255))
