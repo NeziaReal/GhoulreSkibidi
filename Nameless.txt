@@ -2,18 +2,20 @@ if not game:IsLoaded() then
     game.Loaded:Wait()
 end
 
-local qot = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
-if qot then
-    qot([[loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/Nameless.txt"))()]])
-end
-
-local Notifications = loadstring(game:HttpGet("https://raw.githubusercontent.com/tacolift/notification-library/main/library.lua"))()
 local MAINMENU_PLACEID = 72368345999613
 local MAIN_GAMEID = 6490954291
 local GH_GAMEID = 9509842868
 local JUJUTSUSHENANIGANS_GAMEID = 3508322461
 local BIZZARELINEAGE_GAMEID = 5130394318
 local DISCORD_INVITE = "https://discord.gg/uu57TArNU6"
+
+local qot = (syn and syn.queue_on_teleport) or queue_on_teleport or (fluxus and fluxus.queue_on_teleport)
+if qot and game.GameId ~= BIZZARELINEAGE_GAMEID then
+    qot([[loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/Nameless.txt"))()]])
+end
+
+local Notifications = loadstring(game:HttpGet("https://raw.githubusercontent.com/tacolift/notification-library/main/library.lua"))()
+
 
 local MAIN_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GhoulRe.lua"))
 local Webhook_Script = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/jjs/refs/heads/main/extrav4"))
