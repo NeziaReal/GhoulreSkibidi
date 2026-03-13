@@ -23,7 +23,7 @@ local MAIN_MENU_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.
 local JUJUTSUSHENANIGANS_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/jjs/refs/heads/main/main.lua"))
 local UNIVERSAL_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/Universal.lua"))
 local GH_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GardenHoriz"))
-local BIZZARELINEAGE_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/oldblscript.txt"))
+local BIZZARELINEAGE_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/bl.lua"))
 
 if game.PlaceId == MAINMENU_PLACEID then
     MAIN_MENU_SCRIPT() 
