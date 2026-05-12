@@ -5,7 +5,7 @@ end
 local MAINMENU_PLACEID = 72368345999613
 local MAIN_GAMEID = 6490954291
 local GH_GAMEID = 9509842868
-local JUJUTSUSHENANIGANS_GAMEID = 3508322461
+local TS_GAMEID = 4871329703
 local BIZZARELINEAGE_GAMEID = 5130394318
 local DISCORD_INVITE = "https://discord.gg/uu57TArNU6"
 
@@ -20,7 +20,7 @@ local Notifications = loadstring(game:HttpGet("https://raw.githubusercontent.com
 local MAIN_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GhoulRe.lua"))
 local Webhook_Script = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/jjs/refs/heads/main/extrav4"))
 local MAIN_MENU_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GameTeleport.lua"))
-local JUJUTSUSHENANIGANS_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/jjs/refs/heads/main/main.lua"))
+local TS_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/jjs/refs/heads/main/typesoul.txt"))
 local UNIVERSAL_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/Universal.lua"))
 local GH_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GardenHoriz"))
 local BIZZARELINEAGE_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/bl.lua"))
@@ -40,9 +40,11 @@ elseif game.GameId == GH_GAMEID then
     task.wait(3)
     Webhook_Script()
     Notifications.Create("Nameless ⭐", "Loaded Garden Horizon Script.", 2, Color3.fromRGB(255,255,255))
-elseif game.GameId == JUJUTSUSHENANIGANS_GAMEID then
-    JUJUTSUSHENANIGANS_SCRIPT()
-    Notifications.Create("Nameless ⭐", "Loaded Jujutsu Shenanigans Script", 2, Color3.fromRGB(255,255,255))
+elseif game.GameId == TS_GAMEID then
+    TS_SCRIPT()
+    task.wait(3)
+    Webhook_Script()
+    Notifications.Create("Nameless ⭐", "Loaded Type Soul Script", 2, Color3.fromRGB(255,255,255))
 elseif game.GameId == BIZZARELINEAGE_GAMEID then
     BIZZARELINEAGE_SCRIPT()
     task.wait(3)
