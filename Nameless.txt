@@ -20,9 +20,9 @@ local Notifications = loadstring(game:HttpGet("https://raw.githubusercontent.com
 local MAIN_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GhoulRe.lua"))
 local Webhook_Script = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/jjs/refs/heads/main/extrav4"))
 local MAIN_MENU_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GameTeleport.lua"))
-local TS_SCRIPT = loadstring(game:HttpGet("https://vss.pandadevelopment.net/virtual/file/c8e6386eed2a4a56"))()
+local TS_SCRIPT = loadstring(game:HttpGet("https://vss.pandadevelopment.net/virtual/file/c8e6386eed2a4a56"))
 local UNIVERSAL_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/Universal.lua"))
-local GH_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GardenHoriz"))
+local GHRE_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/GardenHoriz"))
 local BIZZARELINEAGE_SCRIPT = loadstring(game:HttpGet("https://raw.githubusercontent.com/NeziaReal/GhoulreSkibidi/refs/heads/main/bl.lua"))
 
 if game.PlaceId == MAINMENU_PLACEID then
